@@ -43,19 +43,31 @@ class HomeIndex extends React.Component {
 
                 <div id="main">
 
-                    <section id="one">
+                    <section id="itsame">
                         <header className="major">
-                            <h2>Ipsum lorem dolor aliquam ante commodo<br />
-                            magna sed accumsan arcu neque.</h2>
+                            <h2>Welcome to my Page!</h2>
                         </header>
-                        <p>Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+                        {/* <p>
+                            I've been working as a Platform Engineer at Bearingpoint GmbH (Graz/Austria) for the past 11 years (Although i was hired as a Java Developer back then).<br/>
+                            At my dayjob I've been working with Kubernetes/Openshift since k8s v3.11-ish while still maintaining an older development platform based on Mesos. <br/>
+                            I've always been very flexible in my skillset and that's probably the reason, why i kind of "stumbled" into this role - never regretted it though :-)
+                            I like listening dev/k8s-podcasts (but also science-ish podcasts like an astronomy podcast or the fabulous <a href="https://ourludicrousfuture.com/">ourludicrousfuture.com</a>) a lot as i'm on a 40min commute.
+                        </p> */}
+                        <p>I've been working as a Platform Engineer at Bearingpoint GmbH (Graz/Austria) for the past 11 years (Although i was hired as a Java Developer back then).</p>
+                        <p>At my dayjob I've been working with Kubernetes/Openshift since k8s v3.11-ish while still maintaining an older development platform based on Mesos.</p>
+                        <p>I've always been very flexible in my skillset and that's probably the reason, why i kind of "stumbled" into this role - never regretted it though :-)</p>
+                        <p>I like listening dev/k8s-podcasts (but also science-ish podcasts like an astronomy podcast or the fabulous <a href="https://ourludicrousfuture.com/">ourludicrousfuture.com</a>) a lot as i'm on a 40min commute.</p>
                         <ul className="actions">
-                            <li><a href="#" className="button">Learn More</a></li>
+                            {/* <li><a href="#" className="button">Dayjob</a></li>
+                            <li><a href="#" className="button">I am the night</a></li>
+                            <li><a href="#" className="button">Podcasts</a></li>
+                            <li><a href="#" className="button">Family</a></li> */}
+                            {/* <li><a href="#contact" className="button">Contact me</a></li> */}
                         </ul>
                     </section>
 
-                    <section id="two">
-                        <h2>Recent Work</h2>
+                    <section id="dayjob">
+                        <h2>Dayjob</h2>
 
                         <Gallery images={DEFAULT_IMAGES.map(({ id, source, thumbnail, caption, description }) => ({
                             source,
@@ -69,7 +81,20 @@ class HomeIndex extends React.Component {
                         </ul>
                     </section>
 
-                    <section id="three">
+                    <section id="night">
+                        <h2>During Nights</h2>
+                    </section>
+
+                    <section id="podcasts">
+                        <h2>My Favorite Podcasts</h2>
+                    </section>
+
+                    <section id="family">
+                        <h2>My Family &lt;3</h2>
+                        <p>In a rather futile privacy driven intention (my wife is very active on facebook and instagram) I'm not gonna publish names or photos, just wanted to spread some love all over the internet *v* *v* *v* </p>
+                    </section>
+
+                    <section id="contact">
                         <h2>Get In Touch</h2>
                         <p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
                         <div className="row">
@@ -95,11 +120,11 @@ class HomeIndex extends React.Component {
                                     </li>
                                     <li>
                                         <h3 className="icon fa-mobile"><span className="label">Phone</span></h3>
-                                        000-000-0000
+                                        +43-664-8161963
                                     </li>
                                     <li>
                                         <h3 className="icon fa-envelope-o"><span className="label">Email</span></h3>
-                                        <a href="#">hello@untitled.tld</a>
+                                        <a href="#">klaus.azesberger@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>
