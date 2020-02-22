@@ -1,32 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import PropTypes from 'prop-types';
+import { Header, PostList } from '../components';
 
 import Layout from '../components/layout'
 // import Lightbox from 'react-images'
-import Gallery from '../components/Gallery'
-
-import thumb01 from '../assets/images/thumbs/01.jpg'
-import thumb02 from '../assets/images/thumbs/02.jpg'
-import thumb03 from '../assets/images/thumbs/03.jpg'
-import thumb04 from '../assets/images/thumbs/04.jpg'
-import thumb05 from '../assets/images/thumbs/05.jpg'
-import thumb06 from '../assets/images/thumbs/06.jpg'
-
-import full01 from '../assets/images/fulls/01.jpg'
-import full02 from '../assets/images/fulls/02.jpg'
-import full03 from '../assets/images/fulls/03.jpg'
-import full04 from '../assets/images/fulls/04.jpg'
-import full05 from '../assets/images/fulls/05.jpg'
-import full06 from '../assets/images/fulls/06.jpg'
-
-const DEFAULT_IMAGES = [
-    { id: '1', source: full01, thumbnail: thumb01, caption: 'Photo 1', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '2', source: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '3', source: full03, thumbnail: thumb03, caption: 'Photo 3', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '4', source: full04, thumbnail: thumb04, caption: 'Photo 4', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '5', source: full05, thumbnail: thumb05, caption: 'Photo 5', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '6', source: full06, thumbnail: thumb06, caption: 'Photo 6', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
-];
 
 class HomeIndex extends React.Component {
 
@@ -58,26 +36,33 @@ class HomeIndex extends React.Component {
                         <p>I've always been very flexible in my skillset and that's probably the reason, why i kind of "stumbled" into this role - never regretted it though :-)</p>
                         <p>I like listening dev/k8s-podcasts (but also science-ish podcasts like an astronomy podcast or the fabulous <a href="https://ourludicrousfuture.com/">ourludicrousfuture.com</a>) a lot as i'm on a 40min commute.</p>
                         <ul className="actions">
-                            {/* <li><a href="#" className="button">Dayjob</a></li>
-                            <li><a href="#" className="button">I am the night</a></li>
-                            <li><a href="#" className="button">Podcasts</a></li>
-                            <li><a href="#" className="button">Family</a></li> */}
+                            {/* <li><a className="button">Dayjob</a></li>
+                            <li><a className="button">I am the night</a></li>
+                            <li><a className="button">Podcasts</a></li>
+                            <li><a className="button">Family</a></li> */}
                             {/* <li><a href="#contact" className="button">Contact me</a></li> */}
                         </ul>
                     </section>
 
                     <section id="dayjob">
                         <h2>Dayjob</h2>
-
-                        <Gallery images={DEFAULT_IMAGES.map(({ id, source, thumbnail, caption, description }) => ({
-                            source,
-                            thumbnail,
-                            caption,
-                            description
-                        }))} />
+                        {edges.map(({ node }) => {
+                        const { id, excerpt, frontmatter } = node;
+                        const { cover, path, title, date } = frontmatter;
+                        return (
+                            <PostList
+                            key={id}
+                            cover={cover.childImageSharp.fluid}
+                            path={path}
+                            title={title}
+                            date={date}
+                            excerpt={excerpt}
+                            />
+                        );
+                        })}
 
                         <ul className="actions">
-                            <li><a href="#" className="button">Full Portfolio</a></li>
+                            <li><a href="#itsame" className="button">Full Portfolio</a></li>
                         </ul>
                     </section>
 
@@ -124,7 +109,7 @@ class HomeIndex extends React.Component {
                                     </li>
                                     <li>
                                         <h3 className="icon fa-envelope-o"><span className="label">Email</span></h3>
-                                        <a href="#">klaus.azesberger@gmail.com</a>
+                                        <a href="mailto:klaus.azesberger@gmail.com">klaus.azesberger@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -139,3 +124,24 @@ class HomeIndex extends React.Component {
 }
 
 export default HomeIndex
+
+HomeIndex.propTypes = {
+    data: PropTypes.shape({
+      allMarkdownRemark: PropTypes.shape({
+        edges: PropTypes.arrayOf(
+          PropTypes.shape({
+            node: PropTypes.shape({
+              excerpt: PropTypes.string,
+              frontmatter: PropTypes.shape({
+                cover: PropTypes.object.isRequired,
+                path: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
+                date: PropTypes.string.isRequired,
+                tags: PropTypes.array,
+              }),
+            }),
+          }).isRequired
+        ),
+      }),
+    }),
+  };
