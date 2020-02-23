@@ -16,7 +16,7 @@ class Header extends React.Component {
                     </h1>
                 </div>
                 <div>
-                    | <a href="#">home</a> |
+                    | <a href="#main">home</a> |
                      <a href="#blog">blog</a> |
                      <a href="#dayjob">dayjob</a> |
                      <a href="#contact">contact</a> |
