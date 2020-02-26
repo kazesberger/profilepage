@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
 import BlogList from '../components/BlogList'
+import ToTopButton from '../components/ToTopButton'
 // import Lightbox from 'react-images'
 
 class HomeIndex extends React.Component {
@@ -16,8 +17,12 @@ class HomeIndex extends React.Component {
                 <Helmet>
                         <title>{siteTitle}</title>
                         <meta name="description" content={siteDescription} />
-                </Helmet>
+                        <script>console.log('hello world')</script>
 
+                </Helmet>
+                
+
+                <ToTopButton/>
                 <div id="main">
 
                     <section id="itsame">
@@ -30,10 +35,10 @@ class HomeIndex extends React.Component {
                             I've always been very flexible in my skillset and that's probably the reason, why i kind of "stumbled" into this role - never regretted it though :-)
                             I like listening dev/k8s-podcasts (but also science-ish podcasts like an astronomy podcast or the fabulous <a href="https://ourludicrousfuture.com/">ourludicrousfuture.com</a>) a lot as i'm on a 40min commute.
                         </p> */}
-                        <p>I've been working as a Platform Engineer at Bearingpoint GmbH (Graz/Austria) for the past 11 years (Although i was hired as a Java Developer back then).</p>
-                        <p>At my dayjob I've been working with Kubernetes/Openshift since k8s v3.11-ish while still maintaining an older development platform based on Mesos.</p>
-                        <p>I've always been very flexible in my skillset and that's probably the reason, why i kind of "stumbled" into this role - never regretted it though :-)</p>
-                        <p>I like listening dev/k8s-podcasts (but also science-ish podcasts like an astronomy podcast or the fabulous <a href="https://ourludicrousfuture.com/">ourludicrousfuture.com</a>) a lot as i'm on a 40min commute.</p>
+                        <p>I've been working as a Platform Engineer at Bearingpoint GmbH (Graz/Austria) for the past 11 years (Although i was hired as a Java Developer back then).
+                        At my dayjob I've been working with Kubernetes/Openshift since k8s v3.11-ish while still maintaining an older development platform based on Mesos.
+                        I've always been very flexible in my skillset and that's probably the reason, why i kind of "stumbled" into this role - never regretted it though :-)
+                        I like listening dev/k8s-podcasts (but also science-ish podcasts like an astronomy podcast or the fabulous <a href="https://ourludicrousfuture.com/">ourludicrousfuture.com</a>) a lot as i'm on a 40min commute.</p>
                         <ul className="actions">
                             {/* <li><a href="#" className="button">Dayjob</a></li>
                             <li><a href="#" className="button">I am the night</a></li>
@@ -45,7 +50,6 @@ class HomeIndex extends React.Component {
 
                     <section id="dayjob">
                         <h2>Dayjob</h2>
-
                             <BlogList></BlogList>
                         <ul className="actions">
                             <li><a href="#main" className="button">Full Portfolio</a></li>

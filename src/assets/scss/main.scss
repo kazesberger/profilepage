@@ -40,9 +40,10 @@
 		)
 	));
 
-	$size-header-width: 35%;
+	$size-header-width: 25%;
 	$size-header-pad: 4em;
-
+	$outline-width: 1px;
+	$outline-color: red;
 /* Basic */
 
 	body {
@@ -994,7 +995,8 @@
 
 	#main {
 		margin-left: $size-header-width;
-		max-width: 50em + $size-header-pad;
+		// max-width: 50em + $size-header-pad;
+		max-width: calc(100% - #{$size-header-width} - 5em);;
 		padding: ($size-header-pad * 2) $size-header-pad $size-header-pad $size-header-pad;
 		width: calc(100% - #{$size-header-width});
 
